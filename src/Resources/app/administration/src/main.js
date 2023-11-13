@@ -6,8 +6,8 @@
  * Author: Coinsnap<dev@coinsnap.io>
  */
 
-import "./components/coinsnap-btcpay-buttons";
-import "./components/coisnap-coinsnap-button";
+import "./components/btcpay-connection-button";
+import "./components/coisnap-connection-button";
 import "./main.scss";
 import CoinchargeBtcpayApiService from "./service/CoinsnapBTCPayAPI.service";
 import CoinchargeCoinsnapApiService from "./service/CoinsnapAPI.service";
