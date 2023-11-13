@@ -162,7 +162,7 @@ class CoinsnapShopware extends Plugin
       $systemConfigRepository = $this->container->get('system_config.repository');
       $criteria = (new Criteria())
         ->addFilter(
-          new ContainsFilter('configurationKey', 'CoinsnapBTCPayShopware.config')
+          new ContainsFilter('configurationKey', 'CoinsnapShopware.config')
         );
       $idSearchResult = $systemConfigRepository->searchIds($criteria, Context::createDefaultContext());
 

@@ -80,7 +80,7 @@ Component.register("coinsnap-btcpay-buttons", {
           ),
         });
       }
-      this.coinsnapBtcpayApiService
+      this.coinsnapBTCPayApiService
         .verifyApiKey()
         .then((ApiResponse) => {
           if (ApiResponse.success === false) {
