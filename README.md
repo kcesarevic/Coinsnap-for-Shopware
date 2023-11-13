@@ -2,7 +2,7 @@
 
 # Bitcoin payments for Shopware
 
-**Accept Bitcoin and Lightning payment in Shopware with BTCPay Server and Coincharge's Bitcoin extension..**
+**Accept Bitcoin and Lightning payment in Shopware with Coinsnap and BTCPay Server.**
 
 # Bitcoin & Lightning payment processing with BTCPay Server.
 
@@ -41,19 +41,20 @@ All you need is your own BTCPay Server or an account with a BTCPay Server that c
 
 Coincharge's Bitcoin extension allows you to connect to this BTCPay Server quickly and easily.
 
-# What does Coincharge offer?
-Coincharge provides the extension to allow Shopware Bitcoin payments to be processed through the BTCPay Server.
+# What does Coinsnap offer?
 
-The Shopware Bitcoin extension for the BTCPay Server is provided by Coincharge free of charge.
+Coinsnap provides the extension to allow Shopware Bitcoin payments to be processed through the BTCPay Server.
 
-On request, Coincharge integrates the Bitcoin extension into your online store, connects the online store to a BTCPay Server and sets up a BTCPay Server for you if required.
+The Shopware Bitcoin extension for the BTCPay Server is provided by Coinsnap free of charge.
 
+On request, Coinsnap integrates the Bitcoin extension into your online store, connects the online store to a BTCPay Server and sets up a BTCPay Server for you if required.
 
 ## Support
+
 - Installation instructions in English and German: https://coincharge.io/en/shopware/
 - Demo Store: https://shopware.coincharge.io/en/
 - Explainer video on YouTube (in German language). Coming Soon
 
 ## Licence
-The MIT License (MIT). Please see [License File] for more information.
 
+The MIT License (MIT). Please see [License File] for more information.
