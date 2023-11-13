@@ -7,12 +7,12 @@
  */
 
 const { Component, Mixin, ApiService } = Shopware;
-import template from "./coincharge-coinsnap-button.html.twig";
+import template from "./coinsnap-connection-button.html.twig";
 import "./coinsnap-connection-button.scss";
 
 Component.register("coinsnap-button", {
   template: template,
-  inject: [["coinsnapCoinsnapApiService"]],
+  inject: [["coinsnapApiService"]],
   mixins: [Mixin.getByName("notification")],
   data() {
     return {

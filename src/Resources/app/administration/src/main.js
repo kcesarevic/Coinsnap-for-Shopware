@@ -7,10 +7,10 @@
  */
 
 import "./components/btcpay-connection-button";
-import "./components/coisnap-connection-button";
+import "./components/coinsnap-connection-button";
 import "./main.scss";
-import CoinchargeBtcpayApiService from "./service/CoinsnapBTCPayAPI.service";
-import CoinchargeCoinsnapApiService from "./service/CoinsnapAPI.service";
+import CoinsnapBtcpayApiService from "./service/CoinsnapBTCPayAPI.service";
+import CoinsnapApiService from "./service/CoinsnapAPI.service";
 import localeDE from "./snippets/de_DE.json";
 import localeEN from "./snippets/en_GB.json";
 
@@ -18,7 +18,7 @@ const { Application } = Shopware;
 
 Application.addServiceProvider("coinsnapBTCPayApiService", (container) => {
 	const initContainer = Application.getContainer("init");
-	return new CoinchargeBtcpayApiService(
+	return new CoinsnapBtcpayApiService(
 		initContainer.httpClient,
 		container.loginService,
 	);
@@ -26,7 +26,7 @@ Application.addServiceProvider("coinsnapBTCPayApiService", (container) => {
 
 Application.addServiceProvider("coinsnapApiService", (container) => {
 	const initContainer = Application.getContainer("init");
-	return new CoinchargeCoinsnapApiService(
+	return new CoinsnapApiService(
 		initContainer.httpClient,
 		container.loginService,
 	);

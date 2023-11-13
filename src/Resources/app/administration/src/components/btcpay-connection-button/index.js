@@ -7,7 +7,7 @@
  */
 
 const { Component, Mixin, ApiService } = Shopware;
-import template from "./coincharge-btcpay-buttons.html.twig";
+import template from "./btcpay-connection-button.html.twig";
 import "./btcpay-connection-button.scss";
 
 Component.register("coinsnap-btcpay-buttons", {
@@ -27,7 +27,7 @@ Component.register("coinsnap-btcpay-buttons", {
       const systemConfig = ApiService.getByName("systemConfigApiService");
 
       const btcpayServerUrl = document.getElementById(
-        "CoinsnapBTCPayShopware.config.btcpayServerUrl",
+        "CoinsnapShopware.config.btcpayServerUrl",
       ).value;
       if (!btcpayServerUrl) {
         return this.createNotificationWarning({
@@ -47,7 +47,7 @@ Component.register("coinsnap-btcpay-buttons", {
         "api/_action/coincharge/credentials";
       systemConfig.saveValues({
         "CoinsnapShopware.config.btcpayServerUrl":
-          this.config["CoinsnapBTCPayShopware.config.btcpayServerUrl"],
+          this.config["CoinsnapShopware.config.btcpayServerUrl"],
         "CoinsnapShopware.config.btcpayApiKey": "",
         "CoinsnapShopware.config.btcpayServerStoreId": "",
         "CoinsnapShopware.config.btcpayWebhookId": "",
