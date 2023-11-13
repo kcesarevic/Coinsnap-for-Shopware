@@ -44,7 +44,7 @@ Component.register("coinsnap-btcpay-buttons", {
       const url =
         window.location.origin +
         clearedPathname +
-        "api/_action/coincharge/credentials";
+        "api/_action/coinsnap/credentials";
       systemConfig.saveValues({
         "CoinsnapShopware.config.btcpayServerUrl":
           this.config["CoinsnapShopware.config.btcpayServerUrl"],
@@ -60,8 +60,8 @@ Component.register("coinsnap-btcpay-buttons", {
       });
       return window.open(
         filteredUrl +
-        "/api-keys/authorize/?applicationName=CoinsnapShopwarePlugin&permissions=btcpay.store.cancreateinvoice&permissions=btcpay.store.canviewinvoices&permissions=btcpay.store.webhooks.canmodifywebhooks&permissions=btcpay.store.canviewstoresettings&selectiveStores=true&redirect=" +
-        url,
+          "/api-keys/authorize/?applicationName=CoinsnapShopwarePlugin&permissions=btcpay.store.cancreateinvoice&permissions=btcpay.store.canviewinvoices&permissions=btcpay.store.webhooks.canmodifywebhooks&permissions=btcpay.store.canviewstoresettings&selectiveStores=true&redirect=" +
+          url,
         "_blank",
         "noopener",
       );
@@ -80,7 +80,7 @@ Component.register("coinsnap-btcpay-buttons", {
           ),
         });
       }
-      this.coinchargeBtcpayApiService
+      this.coinsnapBtcpayApiService
         .verifyApiKey()
         .then((ApiResponse) => {
           if (ApiResponse.success === false) {

@@ -46,11 +46,11 @@ Component.register("coinsnap-button", {
         return this.createNotificationWarning({
           title: "BTCPay Server",
           message: this.$tc(
-            "coincharge-coinsnap-test-connection.missing_credentials",
+            "coinsnap-coinsnap-test-connection.missing_credentials",
           ),
         });
       }
-      this.coinchargeCoinsnapApiService
+      this.coinsnapApiService
         .verifyApiKey()
         .then((ApiResponse) => {
           if (ApiResponse.success === false) {
@@ -63,7 +63,7 @@ Component.register("coinsnap-button", {
           }
           this.createNotificationSuccess({
             title: "Coinsnap",
-            message: this.$tc("coincharge-coinsnap-test-connection.success"),
+            message: this.$tc("coinsnap-coinsnap-test-connection.success"),
           });
 
           this.isLoading = false;
@@ -73,7 +73,7 @@ Component.register("coinsnap-button", {
           this.isLoading = false;
           return this.createNotificationError({
             title: "Coinsnap",
-            message: this.$tc("coincharge-coinsnap-test-connection.error"),
+            message: this.$tc("coinsnap-coinsnap-test-connection.error"),
           });
         });
     },
