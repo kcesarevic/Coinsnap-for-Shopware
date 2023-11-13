@@ -1,0 +1,139 @@
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="Coinsnap\Shopware\Configuration\ConfigurationService">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\CoinsnapBitcoinPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\CoinsnapClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\CoinsnapBitcoinLightningPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\CoinsnapClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\CoinsnapLightningPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\CoinsnapClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\BitcoinLightningPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\BitcoinPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\LightningPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\MoneroPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\PaymentHandler\LitecoinPaymentMethodHandler">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+            <tag name="shopware.payment.method.async" />
+        </service>
+        <service id="Coinsnap\Shopware\Client\BTCPayServerClient">
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+        </service>
+        <service id="Coinsnap\Shopware\Client\CoinsnapClient">
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+        </service>
+
+        <service id="Coinsnap\Shopware\Util\Log\LoggerFactory">
+            <argument type="string">%kernel.logs_dir%/%%s_%kernel.environment%.log</argument>
+            <argument>%shopware.logger.file_rotation_count%</argument>
+        </service>
+        <service id="Coinsnap\Shopware\Util\Logger" class="Monolog\Logger">
+            <factory service="Coinsnap\Shopware\Util\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">btcpay_shopware</argument>
+        </service>
+
+        <service id="Coinsnap\Shopware\Order\OrderService">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+        </service>
+        <service id="Coinsnap\Shopware\Webhook\BTCPayWebhookService">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Order\OrderService"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+        </service>
+        <service id="Coinsnap\Shopware\Webhook\Factory\WebhookFactory" public="true">
+            <argument type="service" id="Coinsnap\Shopware\Client\CoinsnapClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Order\OrderService"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+        </service>
+        <service id="Coinsnap\Shopware\Webhook\WebhookRouter" public="true">
+            <argument type="service" id="Coinsnap\Shopware\Webhook\Factory\WebhookFactory"/>
+        </service>
+        <service id="Coinsnap\Shopware\Webhook\WebhookController" public="true">
+            <argument type="service" id="Coinsnap\Shopware\Webhook\WebhookRouter"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="Coinsnap\Shopware\Configuration\BTCPayConfigurationController" public="true">
+            <argument type="service" id="Coinsnap\Shopware\Client\BTCPayServerClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Coinsnap\Shopware\Webhook\BTCPayWebhookService"/>
+            <argument type="service" id="payment_method.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="Coinsnap\Shopware\Configuration\CoinsnapConfigurationController" public="true">
+            <argument type="service" id="Coinsnap\Shopware\Client\CoinsnapClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Coinsnap\Shopware\Webhook\CoinsnapWebhookService"/>
+            <argument type="service" id="payment_method.repository"/>
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+        <service id="Coinsnap\Shopware\Webhook\CoinsnapWebhookService">
+            <argument type="service" id="Coinsnap\Shopware\Client\CoinsnapClient"/>
+            <argument type="service" id="Coinsnap\Shopware\Configuration\ConfigurationService"/>
+            <argument type="service" id="Shopware\Core\Checkout\Order\Aggregate\OrderTransaction\OrderTransactionStateHandler"/>
+            <argument type="service" id="Coinsnap\Shopware\Order\OrderService"/>
+            <argument type="service" id="order.repository"/>
+            <argument type="service" id="Coinsnap\Shopware\Util\Logger"/>
+        </service>
+    </services>
+</container>
