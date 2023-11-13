@@ -12,7 +12,7 @@ import "./btcpay-connection-button.scss";
 
 Component.register("coinsnap-btcpay-buttons", {
   template: template,
-  inject: [["coinsnapBtcpayApiService"]],
+  inject: [["coinsnapBTCPayApiService"]],
   mixins: [Mixin.getByName("notification")],
   data() {
     return {
@@ -60,8 +60,8 @@ Component.register("coinsnap-btcpay-buttons", {
       });
       return window.open(
         filteredUrl +
-          "/api-keys/authorize/?applicationName=CoinsnapShopwarePlugin&permissions=btcpay.store.cancreateinvoice&permissions=btcpay.store.canviewinvoices&permissions=btcpay.store.webhooks.canmodifywebhooks&permissions=btcpay.store.canviewstoresettings&selectiveStores=true&redirect=" +
-          url,
+        "/api-keys/authorize/?applicationName=CoinsnapShopwarePlugin&permissions=btcpay.store.cancreateinvoice&permissions=btcpay.store.canviewinvoices&permissions=btcpay.store.webhooks.canmodifywebhooks&permissions=btcpay.store.canviewstoresettings&selectiveStores=true&redirect=" +
+        url,
         "_blank",
         "noopener",
       );
