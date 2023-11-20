@@ -1,59 +1,48 @@
-![Image of shopwarebtcpay](https://shopware.coincharge.io/media/e1/41/ca/1664280813/shopware-btcpay-plugin.png)
+![Image of shopwarebtcpay](https://coinsnap.io/wp-content/uploads/2023/11/Coinsnap-for-Shopware.png)
 
-# Bitcoin payments for Shopware
+# Coinsnap for Shopware Payment Plugin
 
-**Accept Bitcoin and Lightning payment in Shopware with Coinsnap and BTCPay Server.**
+**Accept Bitcoin and Lightning payment in Shopware with Coinsnap.**
 
-# Bitcoin & Lightning payment processing with BTCPay Server.
+# Bitcoin & Lightning payment processing with Coinsnap.
 
-With a BTCPay Server you are a dedicated payment processor for Bitcoin and Lightning payments. Run your own BTCPay Server and incoming Bitcoin payments will be credited directly to your own Bitcoin Wallet.
+Coinsnap is a Lightning Payment Provider and offers Bitcoin and Lightning payment processing for retail stores and online stores.
+As a merchant, you only need a Lightning wallet with a Lightning address to receive Bitcoin and Lightning payments from your customers.
 
-You can run your own BTCPay Server or use an shared BTCPay Server.
+**Advantages of using Coinsnap:**
 
-**Other advantages of a BTCPay Server include:**
-
-- Accept Bitcoin and Lightning payments
-- No middleman - Direct payment between end customer and merchant.
-- No identity verification / No KYC
-- Suitable for all business models
-- Control over the balance with its own private keys (non-custodial)
-- Higher privacy and security
-
-**Advantages for merchants:**
-
-- No transaction fees
-- No monthly fees
+- Not running an own Lightning node
+- Simple Integration
 - No chargeback risk, no chargebacks or fraud possible
-- Incoming payments are immediately credited to your own Bitcoin wallet
+- Incoming payments are immediately credited to your own Lightning wallet
+- Optional: Credit to a bank account
 
 # What does the Bitcoin extension offer?
 
 - Quick and easy integration into your own store
-- Connection to a BTCPay Server is completely automated
+- Connection to Coinsnap is completely automated
 - The euro payment amount is calculated automatically using real-time Bitcoin exchange rates
 - In the checkout, the payer can choose between Bitcoin and Lightning.
 
-# Shopware 6 Bitcoin extension for Coincharge's BTCPay Server.
+# Shopware 6 Bitcoin extension.
 
 Accept Bitcoin and Lightning payments in your self-managed Shopware 6 online store.
-
-All you need is your own BTCPay Server or an account with a BTCPay Server that can be shared.
-
-Coincharge's Bitcoin extension allows you to connect to this BTCPay Server quickly and easily.
+All you need is Coinsnap Account and a Lightning Wallet with an Lightning Address.
 
 # What does Coinsnap offer?
 
-Coinsnap provides the extension to allow Shopware Bitcoin payments to be processed through the BTCPay Server.
+Coinsnap provides the extension to allow Shopware Bitcoin payments to be processed through Coinsnap.
 
-The Shopware Bitcoin extension for the BTCPay Server is provided by Coinsnap free of charge.
+The Shopware Bitcoin extension for Coinsnap is free of charge.
 
-On request, Coinsnap integrates the Bitcoin extension into your online store, connects the online store to a BTCPay Server and sets up a BTCPay Server for you if required.
+On request, Coinsnap integrates the Bitcoin extension into your online store.
 
 ## Support
 
-- Installation instructions in English and German: https://coincharge.io/en/shopware/
+- Installation instructions in English and German: https://coinsnap.io/en/coinsnap-shopware-plugin/
 - Demo Store: https://shopware.coincharge.io/en/
-- Explainer video on YouTube (in German language). Coming Soon
+- Telegram Support: https://t.me/coinsnap_io
+
 
 ## Licence
 
