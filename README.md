@@ -39,7 +39,7 @@ On request, Coinsnap integrates the Bitcoin extension into your online store.
 
 ## Support
 
-- Installation instructions in English and German: https://coinsnap.io/en/coinsnap-shopware-plugin/
+- Installation instructions in English and German: https://coinsnap.io/en/coinsnap-for-shopware-payment-plugin/
 - Demo Store: https://shopware.coincharge.io/en/
 - Telegram Support: https://t.me/coinsnap_io
 
