@@ -56,13 +56,24 @@ class AbstractClient
         } catch (RequestException $e) {
             if ($e->hasResponse()) {
                 $response = $e->getResponse();
+                $body = $response->getBody()->getContents();
                 $statusCode = $response->getStatusCode();
                 $reasonPhrase = $response->getReasonPhrase();
+                $method = $e->getRequest()->getMethod();
+                $message = $e->getMessage();
 
-                $this->logger->error('Guzzle request failed: {status} {reason}', [
-                    'status' => $statusCode,
-                    'reason' => $reasonPhrase,
-                ]);
+                $this->logger->error(
+                    'Guzzle request failed: {message} {status} {reason} - {method} {uri} with options: {options} and response: {body}',
+                    [
+                        'status' => $statusCode,
+                        'reason' => $reasonPhrase,
+                        'method' => $method,
+                        'uri' => $uri,
+                        'options' => $options,
+                        'message' => $message,
+                        'body' => $body
+                    ]
+                );
 
                 throw new \Exception($reasonPhrase, $statusCode);
             }
