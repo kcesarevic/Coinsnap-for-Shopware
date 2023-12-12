@@ -52,7 +52,15 @@ class AbstractClient
                     'response' => $body,
                 ]
             );
-            return \json_decode($body, true) ?? [];
+            $decodedBody = \json_decode($body, true);
+            if ($decodedBody === null && json_last_error() !== JSON_ERROR_NONE) {
+                $this->logger->error('Failed to decode JSON response: ' . json_last_error_msg());
+
+                throw new \Exception('Failed to decode JSON response: ' . json_last_error_msg());
+            }
+
+            // Return the decoded response or an empty array
+            return $decodedBody;
         } catch (RequestException $e) {
             if ($e->hasResponse()) {
                 $response = $e->getResponse();
