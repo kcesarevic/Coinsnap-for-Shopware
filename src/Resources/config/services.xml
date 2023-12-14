@@ -76,7 +76,7 @@
         </service>
         <service id="Coinsnap\Shopware\Util\Logger" class="Monolog\Logger">
             <factory service="Coinsnap\Shopware\Util\Log\LoggerFactory" method="createRotating"/>
-            <argument type="string">btcpay_shopware</argument>
+            <argument type="string">coinsnap_shopware</argument>
         </service>
 
         <service id="Coinsnap\Shopware\Order\OrderService">
