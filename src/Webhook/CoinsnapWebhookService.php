@@ -169,6 +169,6 @@ class CoinsnapWebhookService implements WebhookServiceInterface
                 $this->logger->info('Invoice payment settled.');
                 break;
         }
-        return new Response();
+        return new Response('success', Response::HTTP_OK);
     }
 }

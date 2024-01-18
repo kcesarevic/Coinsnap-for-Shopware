@@ -298,6 +298,6 @@ class BTCPayWebhookService implements WebhookServiceInterface
                 }
                 break;
         }
-        return new Response();
+        return new Response('success', Response::HTTP_OK);
     }
 }
