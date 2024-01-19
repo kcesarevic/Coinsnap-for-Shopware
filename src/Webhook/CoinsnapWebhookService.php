@@ -82,16 +82,13 @@ class CoinsnapWebhookService implements WebhookServiceInterface
             }
             $uri = '/api/v1/stores/' . $this->configurationService->getSetting('coinsnapStoreId') . '/webhooks/' . $this->configurationService->getSetting('coinsnapWebhookId');
             $response = $this->client->sendGetRequest($uri);
-            if (empty($response)) {
-                $this->logger->error("Webhook with ID:" . $this->configurationService->getSetting('coinsnapWebhookId') . " doesn't exist.");
-                return false;
-            }
-            if ($response['enabled'] == false) {
-                $this->logger->error("Webhook with ID:" . $this->configurationService->getSetting('coinsnapWebhookId') . " isn't enabled.");
-                return false;
+            if (empty($response) || $response['enabled'] === false) {
+                throw new \Exception("Webhook with ID:" . $this->configurationService->getSetting('coinsnapWebhookId') .
+                    (empty($response) ? " doesn't exist." : " isn't enabled."));
             }
             return true;
         } catch (\Exception $e) {
+            $this->logger->error($e->getMessage());
             return false;
         }
     }
