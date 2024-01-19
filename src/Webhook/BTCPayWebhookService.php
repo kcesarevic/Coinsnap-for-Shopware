@@ -104,10 +104,11 @@ class BTCPayWebhookService implements WebhookServiceInterface
         }
         $uri = '/api/v1/stores/' . $this->configurationService->getSetting('btcpayServerStoreId') . '/invoices/' . $body['invoiceId'];
         $responseBody = $body['type'] == 'InvoicePaymentSettled' ? $this->client->sendGetRequest($uri) : '';
-        $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('orderNumber', $body['metadata']['orderNumber']));
-        $orderId = $this->orderRepository->searchIds($criteria, $context)->firstId();
+        // $criteria = new Criteria();
+        // $criteria->addFilter(new EqualsFilter('orderNumber', $body['metadata']['orderNumber']));
+        // $orderId = $this->orderRepository->searchIds($criteria, $context)->firstId();
 
+        $orderId = $this->orderService->getId($responseBody['metadata']['orderNumber'], $context);
 
 
         switch ($body['type']) {

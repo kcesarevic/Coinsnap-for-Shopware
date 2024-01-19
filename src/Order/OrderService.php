@@ -48,20 +48,4 @@ class OrderService
         $orderId = $this->orderRepository->searchIds($criteria, $context)->firstId();
         return $orderId;
     }
-
-    private function updateOrderStatus(string $orderId, string $invoiceId, string $status, Context $context): void
-    {
-        $this->orderRepository->upsert(
-            [
-                [
-                    'id' => $orderId,
-                    'customFields' => [
-                        'coinsnapInvoiceId' => $invoiceId,
-                        'coinsnapOrderStatus' => $status,
-                    ],
-                ],
-            ],
-            $context
-        );
-    }
 }
