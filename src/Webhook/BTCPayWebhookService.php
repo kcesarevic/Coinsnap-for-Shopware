@@ -256,7 +256,6 @@ class BTCPayWebhookService implements WebhookServiceInterface
                 break;
             case 'InvoiceSettled':
                 //Webhook doesn't send overPaid
-                //Bug
                 if (isset($body['overPaid']) && $body['overPaid']) {
 
                     $this->orderRepository->upsert(
