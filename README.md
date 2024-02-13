@@ -11,7 +11,7 @@ As a merchant, you only need a Lightning wallet with a Lightning address to rece
 
 **Advantages of using Coinsnap:**
 
-- Not running an own Lightning node
+- Not running an own Lightning nodehjkjhjkhkjh
 - Simple Integration
 - No chargeback risk, no chargebacks or fraud possible
 - Incoming payments are immediately credited to your own Lightning wallet
